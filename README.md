@@ -15,7 +15,13 @@ Then install the requirements:
 
 ```pip install -r requirements.txt```
 
-Currently we're using [tweepy](http://tweepy.readthedocs.org) for interacting with Twitter and [pygithub](https://pygithub.readthedocs.io) to interact with GitHub.
+Currently we're using [tweepy](http://tweepy.readthedocs.org) for interacting
+with Twitter and [pygithub](https://pygithub.readthedocs.io) to interact with
+GitHub. To use these you will first need to generate API tokens as described
+here for
+[Twitter](https://developer.twitter.com/en/docs/basics/authentication/overview)
+and
+[Github](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
 ## Running the AnalyseGithub Bot
 
