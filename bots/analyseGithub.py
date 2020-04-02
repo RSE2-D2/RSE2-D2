@@ -6,23 +6,70 @@ import requests
 
 import tweepy
 
-files_we_need = {
-    "readme" : ["readme", "README", "README.md",
-                "readme.md", "readme.rst", "README.rst"]
+### Filenames we want to see present
+# To add another file type use this template schema
+#     "filetypeDescription" : {
+#        "filenames" : ["file.md", "FILE", "permutation3"],
+#        "error" : "errorname_from_advice_db.json"
+#    }
+
+
+files_we_need = { #Use casefold() for case insensitive comparison
+    "readme" : {
+    "filenames" : ["readme", "readme.md", "readme.rst", "readme.txt"],
+    "error" :"NoReadMe"
+    },
+    "license" : {
+        "filenames" : ["license", "license.md", "license.rst", "license.txt"],
+        "error" : "NoLicense"
+    },
+    "codeofconduct" : {
+        "filenames" : ["code_of_conduct", "codeofconduct", "code_of_conduct.md", "codeofconduct.md", "code_of_conduct.rst", "codeofconduct.rst"  "code_of_conduct.txt", "codeofconduct.txt"],
+        "error" : "NoCodeOfConduct"
+    }
+# Add more files from https://github.com/joelparkerhenderson/github_special_files_and_paths ?
 }
+
+files_audited = {
+    "strong_in_the_force" : [],
+    "lacking_faith" : []
+}
+
 
 def analyseGithubLinkAndRespond(github, twitter, link):
     repo = ();
     try:
         repo = github.get_repo(link)
     except Exception as e:
+        print(e)
         return
 
+    # gather all files in the root of the repo
     contents = repo.get_contents("")
-    for content_file in contents:
-        print(content_file)
+    contents_files_lowercase = []
 
-    print(files_we_need["readme"])
+    for content in contents:
+        contents_files_lowercase.append(content.name.casefold())
+
+    print("contents of repo root:")
+    print(contents_files_lowercase)
+
+    #iterate through approved file list and for each type, check if it's present
+    for a_file_type in files_we_need:
+        the_type = files_we_need[a_file_type]
+        print("--> checking for " + a_file_type);
+        # check for intersection in existing file namesand possible file names
+        found = set(contents_files_lowercase).intersection(the_type["filenames"])
+        if len(found) > 0:
+            print("|------ found " + a_file_type)
+            files_audited["strong_in_the_force"].append(a_file_type)
+        else:
+            print("|xx-notfound " + a_file_type)
+            files_audited["lacking_faith"].append(a_file_type)
+
+    print(files_audited)
+    return files_audited
+
 
 def containsGitHubURL(s) :
     return "github.com/" in s
@@ -78,7 +125,7 @@ def main():
 
     twitter = api.createTwitterAPI(cfgloc)
     github = api.createGitHubAPI(cfgloc)
-  
+
     latestId = 1245666650088714251
     while True:
         latestId = watchMentions(github, twitter, latestId)
