@@ -8,16 +8,20 @@ from github import Github
 #    }
 
 
-files_we_need = {
+files_we_need = { #Use casefold() for case insensitive comparison 
     "readme" : {
-    "filenames" : ["readme", "README", "README.md", "readme.md",
-"readme.rst", "README.rst"],
+    "filenames" : ["readme", "readme.md", "readme.rst", "readme.txt"],
     "error" :"NoReadMe"
     },
-    "licence" : {
-        "filenames" : [],
-        "error" : ""
+    "license" : {
+        "filenames" : ["license", "license.md", "license.rst", "license.txt"],
+        "error" : "NoLicense""
+    },
+    "codeofconduct" : {
+        "filenames" : ["code_of_conduct", "codeofconduct", "code_of_conduct.md", "codeofconduct.md", "code_of_conduct.rst", "codeofconduct.rst"  "code_of_conduct.txt", "codeofconduct.txt"],
+        "error" : "NoCodeOfConduct""
     }
+# Add more files from https://github.com/joelparkerhenderson/github_special_files_and_paths ?
 }
 
 ###
@@ -37,4 +41,4 @@ contents = repo.get_contents("")
 for content_file in contents:
     print(content_file)
 
-print(files_we_need["readme"])
+print(files_we_need["readme", "license", "codeofconduct"])
