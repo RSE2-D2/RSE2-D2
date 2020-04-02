@@ -1,13 +1,15 @@
 import analyseGithub
 
 def test_containsGithubURL_empty():
-    assert analyseGithub.containsGitHubURL("") == False
+    assert not analyseGithub.containsGitHubURL("")
 
 def test_containsGithubURL_noUrl():
-    assert analyseGithub.containsGitHubURL("Some test tweet") == False
+    assert not analyseGithub.containsGitHubURL("Some test tweet")
 
 def test_containsGithubURL_url():
-    assert analyseGithub.containsGitHubURL("https://github.com/git/git") == True
+    repo = "https://github.com/git/git"
+    assert analyseGithub.containsGitHubURL(repo)
 
 def test_extractGitHubLink():
-    assert analyseGithub.extractGitHubLink("https://github.com/git/git more tweet") == "https://github.com/git/git"
+    repo = "https://github.com/git/git"
+    assert analyseGithub.extractGitHubLink(f"{repo} more tweet") == repo
