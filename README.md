@@ -28,6 +28,12 @@ given by "--config".
 
 An example API configuration ini file is in `api_config.ini`.
 
-For example, we can run with a local config using
+## Running the GeneralTweet bot
+
+To send general tweets every day, set up the config file as above, then run:
+
+```python bots/generalTweets.py --config=api_config.ini```
+
+We can run with a local config using
 
 ```python bots/analyseGithub.py --config api_config.ini```
