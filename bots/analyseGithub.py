@@ -149,7 +149,7 @@ def main():
     parser = argparse.ArgumentParser(description='RSE2-D2 github analysing bot.')
     parser.add_argument('--config', nargs='?',
                         help='Location of the local API config file')
-    parser.add_argument('--error_json', help='Location of the local JSON response DB')
+    parser.add_argument('--error_json', required=True, help='Location of the local JSON response DB')
     args = parser.parse_args()
 
     cfgloc = ""
