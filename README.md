@@ -32,3 +32,9 @@ access_key:
 access_secret:
 
 At either: ~/.rse2_d2.ini or at the location given by "--config"
+
+## Running the GeneralTweet bot
+
+To send general tweets every day, set up the config file as above, then run:
+
+```python bots/generalTweets.py --config=api_config.ini```
