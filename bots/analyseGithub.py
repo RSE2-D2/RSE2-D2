@@ -2,6 +2,8 @@ import api
 import argparse
 import re
 
+import tweepy
+
 def analyseGithubLinkAndRespond(api, link):
     print("Unimplemented")
 
