@@ -3,7 +3,7 @@
 
       {
          "id": "gen_00001",
-	 "quote": "Unreadable code is the path to the dark side. Unreadable code leads to anger, anger leads to hate, hate leads to suffering. I sense much unreadable code in your repository."
+	 "quote": "Unreadable code is the path to the dark side. Unreadable code leads to anger, anger leads to hate, hate leads to suffering. I sense much unreadable code in your repository. 📖 http://tiny.cc/clean-code"
       },
       {
          "id": "gen_00002",
@@ -11,7 +11,7 @@
       },
       {
          "id": "gen_00003",
-	 "quote": "Train yourself to let go of everything you fear to lose. Refactor your code you must."
+	 "quote": "Train yourself to let go of everything you fear to lose. Refactor your code you must. 🚅 https://carpentries.org/"
       }
 
    ],
@@ -20,7 +20,7 @@
 
       {
          "id": "read_00001",
-	 "quote": "I sense a disturbance in the force. No README this repository has."
+	 "quote": "I sense a disturbance in the force. No README this repository has. 📖 http://tiny.cc/no-readme"
       }
 
    ],
@@ -29,7 +29,7 @@
 
       {
          "id": "lic_00001",
-	 "quote": "Facing all that you fear will free you from yourself. Decide on a license you must."
+	 "quote": "Facing all that you fear will free you from yourself. Decide on a license you must. 📖  http://tiny.cc/no-license"
       }
 
    ],
@@ -38,7 +38,7 @@
 
       {
          "id": "con_00001",
-	 "quote": "A developer uses the his skills for knowledge and defense, never for attack. Add a code of conduct to your repository!"
+	 "quote": "A developer uses the his skills for knowledge and defense, never for attack. Add a code of conduct to your repository! 📖 http://tiny.cc/no-CoC"
       }
 
    ],
@@ -47,13 +47,13 @@
 
       {
          "id": "test_00001",
-	 "quote": "Your eyes can deceive you, don't trust them. Write a test!"
+	 "quote": "Your eyes can deceive you, don't trust them. Write a test! 📖 http://tiny.cc/no-CI"
       },
 
 
       {
          "id": "test_00002",
-	 "quote": "Test. Or test not. There is no try."
+	 "quote": "Test. Or test not. There is no try. 📖 http://tiny.cc/no-tests"
       }
 
    ], 
@@ -62,12 +62,12 @@
 
       {
          "id": "doc_00001",
-	 "quote": "I find your lack of documentation disturbing."
+	 "quote": "I find your lack of documentation disturbing. 📖 http://tiny.cc/no-docs"
       },
 
       {
          "id": "doc_00002",
-	 "quote": "When gone am I, the last of the developers will you be. The Force runs strong in your family. Pass on what you have learned."
+	 "quote": "When gone am I, the last of the developers will you be. The Force runs strong in your family. Pass on what you have learned. 📖 http://tiny.cc/no-docs"
       }
 
    ],
