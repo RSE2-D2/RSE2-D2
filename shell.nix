@@ -10,5 +10,6 @@ mkShell {
     python3
     tweepy
     pytest
+    PyGithub
   ];
 }
