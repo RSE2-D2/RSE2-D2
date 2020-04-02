@@ -3,6 +3,8 @@ import argparse
 import re
 import time
 import requests
+import random
+import json
 
 import tweepy
 
@@ -30,13 +32,8 @@ files_we_need = { #Use casefold() for case insensitive comparison
 # Add more files from https://github.com/joelparkerhenderson/github_special_files_and_paths ?
 }
 
-files_audited = {
-    "strong_in_the_force" : [],
-    "lacking_faith" : []
-}
 
-
-def analyseGithubLinkAndRespond(github, twitter, link):
+def analyseGithubLinkAndRespond(github, twitter, errorJSON, tweet, link):
     repo = ();
     try:
         repo = github.get_repo(link)
@@ -54,6 +51,9 @@ def analyseGithubLinkAndRespond(github, twitter, link):
     print("contents of repo root:")
     print(contents_files_lowercase)
 
+
+
+    missing = []
     #iterate through approved file list and for each type, check if it's present
     for a_file_type in files_we_need:
         the_type = files_we_need[a_file_type]
@@ -62,13 +62,31 @@ def analyseGithubLinkAndRespond(github, twitter, link):
         found = set(contents_files_lowercase).intersection(the_type["filenames"])
         if len(found) > 0:
             print("|------ found " + a_file_type)
-            files_audited["strong_in_the_force"].append(a_file_type)
         else:
             print("|xx-notfound " + a_file_type)
-            files_audited["lacking_faith"].append(a_file_type)
+            missing.append(the_type["error"])
 
-    print(files_audited)
-    return files_audited
+    # Send a tweet for something we are lacking faith in
+    if len(missing) > 0:
+        f = random.choice(missing)
+        print("tweeting about: " + f)
+        # TODO: Load only once - refresh every now and then
+        responseDB = {}
+        with open(errorJSON) as db:
+            responseDB = json.load(db)
+
+        possibleResponses = responseDB.get(f, [])
+        if len(possibleResponses) > 0:
+            responseTxt = random.choice(possibleResponses)
+            res = "@" + tweet.user.screen_name + " " + responseTxt["quote"]
+            print("Responding with:" + res)
+            print("Replying to id" + str(tweet.id))
+            twitter.update_status(
+                status=" " + res,
+                in_reply_to_status_id=tweet.id,
+            )
+
+    return
 
 
 def containsGitHubURL(s) :
@@ -94,7 +112,7 @@ def extractURL(s) :
     matches = re.findall(r'(https?://t.co/\S+)', s)
     return matches[0]
 
-def watchMentions(github, twitter, lastId):
+def watchMentions(github, twitter, errorJSON, lastId):
     latestId = lastId
     for tweet in tweepy.Cursor(twitter.mentions_timeline,
                             since_id=latestId).items():
@@ -106,7 +124,7 @@ def watchMentions(github, twitter, lastId):
             link = checkURLForGitHubLink(extractURL(tweet.text))
             if link != "":
                 print("Got github. Analysing")
-                analyseGithubLinkAndRespond(github, twitter, extractGitHubLink(link))
+                analyseGithubLinkAndRespond(github, twitter, errorJSON, tweet, extractGitHubLink(link))
 
     return latestId
 
@@ -114,6 +132,7 @@ def main():
     parser = argparse.ArgumentParser(description='RSE2-D2 github analysing bot.')
     parser.add_argument('--config', nargs='?',
                         help='Location of the local API config file')
+    parser.add_argument('--error_json', help='Location of the local JSON response DB')
     args = parser.parse_args()
 
     cfgloc = ""
@@ -126,9 +145,9 @@ def main():
     twitter = api.createTwitterAPI(cfgloc)
     github = api.createGitHubAPI(cfgloc)
 
-    latestId = 1245666650088714251
+    latestId = 1245701334373892130
     while True:
-        latestId = watchMentions(github, twitter, latestId)
+        latestId = watchMentions(github, twitter, args.error_json, latestId)
         time.sleep(30)
 
 if __name__ == "__main__":
