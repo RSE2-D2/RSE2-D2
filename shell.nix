@@ -9,5 +9,6 @@ mkShell {
   buildInputs = [
     python3
     tweepy
+    pytest
   ];
 }
