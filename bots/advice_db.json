@@ -1,0 +1,164 @@
+{
+   "general": [
+
+      {
+         "id": "gen_00001",
+	 "quote": "Unreadable code is the path to the dark side. Unreadable code leads to anger, anger leads to hate, hate leads to suffering. I sense much unreadable code in your repository."
+      },
+
+      {
+         "id": "gen_00002",
+	 "quote": "A developer uses the his skills for knowledge and defense, never for attack."
+      },
+      {
+         "id": "gen_00003",
+	 "quote": "A developer must have the deepest commitment, the most serious mind. This one a long time have I watched. All his life has he looked away…to the future, to the horizon. Never his mind on where he was. Hmm? What he was doing."
+      },
+      {
+         "id": "gen_00004",
+	 "quote": "Train yourself to let go of everything you fear to lose. Refactor your code you must."
+      }
+
+   ]
+}
+
+
+
+{
+   "NoReadMe": [
+
+      {
+         "id": "read_00001",
+	 "quote": "I sense a disturbance in the force. No README this repository has."
+      }
+
+   ]
+}
+
+{
+   "Tests": [
+
+      {
+         "id": "test_00001",
+	 "quote": "Your eyes can deceive you, don't trust them. Write a test!"
+      },
+
+
+      {
+         "id": "test_00002",
+	 "quote": "Test. Or test not. There is no try."
+      }
+
+   ]
+}
+
+
+{
+   "Documentation": [
+
+      {
+         "id": "doc_00001",
+	 "quote": "I find your lack of documentation disturbing."
+      },
+
+      {
+         "id": "doc_00002",
+	 "quote": "When gone am I, the last of the developers will you be. The Force runs strong in your family. Pass on what you have learned."
+      }
+
+   ]
+}
+
+
+{
+   "OpenIssues": [
+
+      {
+         "id": "iss_00001",
+	 "quote": "Help me, developer. You are my only hope. This issue has been open for a long time. Please have a look at it!"
+      },
+
+      {
+         "id": "iss_00002",
+	 "quote": "Your focus determines your reality. Check the open issues in your repository!"
+      }
+
+   ]
+}
+
+
+{
+   "HPC": [
+
+      {
+         "id": "hpc_00001",
+	 "quote": "Isn't there a bit too much I/O for an HPC code?"
+      }
+
+   ]
+}
+
+{
+   "VersionControl": [
+
+      {
+         "id": "ver_00001",
+	 "quote": "Do not use the force push - it breaks history."
+      },
+
+      {
+         "id": "ver_00002",
+	 "quote": "We must keep our faith in version control. The day we stop believing version control can work is the day we lose it."
+      }
+
+   ]
+}
+
+{
+   "Python": [
+
+      {
+         "id": "py_00001",
+	 "quote": ""
+      },
+
+      {
+         "id": "py_00002",
+	 "quote": ""
+      }
+
+   ]
+}
+
+{
+   "C++": [
+
+      {
+         "id": "c==_00001",
+	 "quote": ""
+      },
+
+      {
+         "id": "c++_00002",
+	 "quote": ""
+      }
+
+   ]
+}
+
+{
+   "Fortran": [
+
+      {
+         "id": "fort_00001",
+	 "quote": ""
+      },
+
+      {
+         "id": "fort_00002",
+	 "quote": ""
+      }
+
+   ]
+}
+
