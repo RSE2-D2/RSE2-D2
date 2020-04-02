@@ -19,12 +19,8 @@
 	 "quote": "Train yourself to let go of everything you fear to lose. Refactor your code you must."
       }
 
-   ]
-}
+   ],
 
-
-
-{
    "NoReadMe": [
 
       {
@@ -32,10 +28,8 @@
 	 "quote": "I sense a disturbance in the force. No README this repository has."
       }
 
-   ]
-}
+   ],
 
-{
    "Tests": [
 
       {
@@ -49,11 +43,8 @@
 	 "quote": "Test. Or test not. There is no try."
       }
 
-   ]
-}
+   ], 
 
-
-{
    "Documentation": [
 
       {
@@ -66,11 +57,8 @@
 	 "quote": "When gone am I, the last of the developers will you be. The Force runs strong in your family. Pass on what you have learned."
       }
 
-   ]
-}
+   ],
 
-
-{
    "OpenIssues": [
 
       {
@@ -83,11 +71,8 @@
 	 "quote": "Your focus determines your reality. Check the open issues in your repository!"
       }
 
-   ]
-}
+   ],
 
-
-{
    "HPC": [
 
       {
@@ -95,10 +80,8 @@
 	 "quote": "Isn't there a bit too much I/O for an HPC code?"
       }
 
-   ]
-}
+   ],
 
-{
    "VersionControl": [
 
       {
@@ -111,10 +94,8 @@
 	 "quote": "We must keep our faith in version control. The day we stop believing version control can work is the day we lose it."
       }
 
-   ]
-}
+   ],
 
-{
    "Python": [
 
       {
@@ -127,10 +108,8 @@
 	 "quote": ""
       }
 
-   ]
-}
+   ],
 
-{
    "C++": [
 
       {
@@ -143,10 +122,8 @@
 	 "quote": ""
       }
 
-   ]
-}
+   ],
 
-{
    "Fortran": [
 
       {
