@@ -23,12 +23,11 @@ The analyseGithub RSE2-D2 bot can be run as:
 
 ```python bots/analyseGithub.py ```
 
-Twitter credentials are read from the ini file of the form:
+The bot will read API tokens from either: ~/.rse2_d2.ini or at the location
+given by "--config".
 
-[TWITTER]
-consumer_key:
-consumer_secret:
-access_key:
-access_secret:
+An example API configuration ini file is in `api_config.ini`.
 
-At either: ~/.rse2_d2.ini or at the location given by "--config"
+For example, we can run with a local config using
+
+```python bots/analyseGithub.py --config api_config.ini```
