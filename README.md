@@ -32,4 +32,4 @@ The local database of responses is given by the argument ```--error_json```
 
 For example, we can run with a local config and default responses with
 
-```python bots/analyseGithub.py --config api_config.ini --error_json bots/advice/db.json```
+```python bots/analyseGithub.py --config api_config.ini --error_json bots/advice_db.json```
