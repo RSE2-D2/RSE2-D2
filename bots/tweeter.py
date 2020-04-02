@@ -9,17 +9,23 @@ JSON_KEY_GENERAL = 'general'
 JSON_KEY_QUOTE = 'quote'
 
 
-def getTweet(section=JSON_KEY_GENERAL):
-    current_dir = os.path.dirname(os.path.realpath(__file__))
-    with open(os.path.join(current_dir, "advice_db.json")) as dbfile:
+def getTweet(jsonFilename, section=JSON_KEY_GENERAL, reply_username=None):
+    # TODO: Load only once - refresh every now and then
+    with open(jsonFilename) as dbfile:
         data = json.load(dbfile)
-        general_tweets = data.get(JSON_KEY_GENERAL)
-        tweet = random.choice(general_tweets).get(JSON_KEY_QUOTE)
         dbfile.close()
+
+    tweets = data.get(section)
+
+    if len(tweets) > 0:
+        tweet = random.choice(tweets).get(JSON_KEY_QUOTE)
+
+        if reply_username is not None:
+            tweet = '@' + reply_username + ' ' + tweet
 
     return tweet
 
 
-def sendTweet(twitter_api, section=JSON_KEY_GENERAL):
-    newTweet = getTweet(section)
+def sendTweet(twitter_api, jsonFilename, section=JSON_KEY_GENERAL):
+    newTweet = getTweet(jsonFilename, section)
     twitter_api.update_status(newTweet)
