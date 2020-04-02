@@ -11,5 +11,6 @@ mkShell {
     tweepy
     pytest
     PyGithub
+    requests
   ];
 }

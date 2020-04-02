@@ -10,7 +10,7 @@ def readGithubAPIConfig(loc):
         }
 
 def createGitHubAPI(cfgloc = "~/.rse2_d2.ini"):
-    cfg = reactGithubAPIConfig(cfgloc)
+    cfg = readGithubAPIConfig(cfgloc)
     return Github(cfg["token"])
 
 def readTwitterAPIConfig(loc):
