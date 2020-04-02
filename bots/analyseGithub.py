@@ -6,9 +6,28 @@ import requests
 
 import tweepy
 
-files_we_need = {
-    "readme" : ["readme", "README", "README.md",
-                "readme.md", "readme.rst", "README.rst"]
+### Filenames we want to see present
+# To add another file type use this template schema
+#     "filetypeDescription" : {
+#        "filenames" : ["file.md", "FILE", "permutation3"],
+#        "error" : "errorname_from_advice_db.json"
+#    }
+
+
+files_we_need = { #Use casefold() for case insensitive comparison
+    "readme" : {
+    "filenames" : ["readme", "readme.md", "readme.rst", "readme.txt"],
+    "error" :"NoReadMe"
+    },
+    "license" : {
+        "filenames" : ["license", "license.md", "license.rst", "license.txt"],
+        "error" : "NoLicense"
+    },
+    "codeofconduct" : {
+        "filenames" : ["code_of_conduct", "codeofconduct", "code_of_conduct.md", "codeofconduct.md", "code_of_conduct.rst", "codeofconduct.rst"  "code_of_conduct.txt", "codeofconduct.txt"],
+        "error" : "NoCodeOfConduct"
+    }
+# Add more files from https://github.com/joelparkerhenderson/github_special_files_and_paths ?
 }
 
 def analyseGithubLinkAndRespond(github, twitter, link):
@@ -18,11 +37,14 @@ def analyseGithubLinkAndRespond(github, twitter, link):
     except Exception as e:
         return
 
+    # gather all files in the root of the repo
     contents = repo.get_contents("")
-    for content_file in contents:
-        print(content_file)
 
-    print(files_we_need["readme"])
+    # iterate through approved file list and for each type, check if it's present
+    for a_file_type in files_we_need:
+        the_type = files_we_need[a_file_type]
+        for filename_option in the_type["filenames"]:
+            print(filename_option)
 
 def containsGitHubURL(s) :
     return "github.com/" in s
@@ -78,7 +100,7 @@ def main():
 
     twitter = api.createTwitterAPI(cfgloc)
     github = api.createGitHubAPI(cfgloc)
-  
+
     latestId = 1245666650088714251
     while True:
         latestId = watchMentions(github, twitter, latestId)
