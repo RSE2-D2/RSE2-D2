@@ -1,4 +1,5 @@
 {
+   "randomiser": ["Beep!", "Boop.", "Clunk!", "Whrrr!", "Beep-boop!", "Beep.", "Boop!", "Hmm!", "Ahh!", "Mmm.", "🤖", "🔨", "💌", "🔧", "👩‍💻", "👨‍💻", "🚀", "💻", "🛠", "⚙️", "💽", "💾" ],
    "general": [
 
       {
@@ -56,7 +57,7 @@
 	 "quote": "Test. Or test not. There is no try. 📖 http://tiny.cc/no-tests"
       }
 
-   ], 
+   ],
 
    "Documentation": [
 
@@ -151,4 +152,3 @@
 
    ]
 }
-
