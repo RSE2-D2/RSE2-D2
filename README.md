@@ -38,5 +38,5 @@ For example, we can run with a local config and default responses with
 
 To send general tweets every day, set up the config file as above, then run:
 
-```python bots/generalTweets.py --config=api_config.ini```
+```python bots/generalTweets.py --config=api_config.ini --error_json bots/advice_db.json```
 
