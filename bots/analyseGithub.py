@@ -79,10 +79,9 @@ def main():
     twitter = api.createTwitterAPI(cfgloc)
     github = api.createGitHubAPI(cfgloc)
   
-    # TODO: Will this get all tweats in history? Might need to scan for the most recent first?
-    latestId = 1245644176378617856
+    latestId = 1245666650088714251
     while True:
-        lastestId = watchMentions(github, twitter, latestId)
+        latestId = watchMentions(github, twitter, latestId)
         time.sleep(30)
 
 if __name__ == "__main__":
