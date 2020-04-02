@@ -7,6 +7,7 @@ import random
 import json
 
 import tweepy
+import tweeter
 
 ### Filenames we want to see present
 # To add another file type use this template schema
@@ -70,15 +71,10 @@ def analyseGithubLinkAndRespond(github, twitter, errorJSON, tweet, link):
     if len(missing) > 0:
         f = random.choice(missing)
         print("tweeting about: " + f)
-        # TODO: Load only once - refresh every now and then
-        responseDB = {}
-        with open(errorJSON) as db:
-            responseDB = json.load(db)
 
-        possibleResponses = responseDB.get(f, [])
-        if len(possibleResponses) > 0:
-            responseTxt = random.choice(possibleResponses)
-            res = "@" + tweet.user.screen_name + " " + responseTxt["quote"]
+        res = tweeter.getTweet(errorJSON, section=f, reply_username=tweet.user.screen_name)
+
+        if res:
             print("Responding with:" + res)
             print("Replying to id" + str(tweet.id))
             twitter.update_status(
