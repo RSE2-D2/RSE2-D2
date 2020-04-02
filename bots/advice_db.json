@@ -5,17 +5,12 @@
          "id": "gen_00001",
 	 "quote": "Unreadable code is the path to the dark side. Unreadable code leads to anger, anger leads to hate, hate leads to suffering. I sense much unreadable code in your repository."
       },
-
       {
          "id": "gen_00002",
-	 "quote": "A developer uses the his skills for knowledge and defense, never for attack."
-      },
-      {
-         "id": "gen_00003",
 	 "quote": "A developer must have the deepest commitment, the most serious mind. This one a long time have I watched. All his life has he looked away…to the future, to the horizon. Never his mind on where he was. Hmm? What he was doing."
       },
       {
-         "id": "gen_00004",
+         "id": "gen_00003",
 	 "quote": "Train yourself to let go of everything you fear to lose. Refactor your code you must."
       }
 
@@ -26,6 +21,24 @@
       {
          "id": "read_00001",
 	 "quote": "I sense a disturbance in the force. No README this repository has."
+      }
+
+   ],
+
+   "NoLicense": [
+
+      {
+         "id": "lic_00001",
+	 "quote": "Facing all that you fear will free you from yourself. Decide on a license you must."
+      }
+
+   ],
+
+   "NoCodeOfConduct": [
+
+      {
+         "id": "con_00001",
+	 "quote": "A developer uses the his skills for knowledge and defense, never for attack. Add a code of conduct to your repository!"
       }
 
    ],
