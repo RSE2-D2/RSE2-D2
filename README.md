@@ -33,3 +33,10 @@ The local database of responses is given by the argument ```--error_json```
 For example, we can run with a local config and default responses with
 
 ```python bots/analyseGithub.py --config api_config.ini --error_json bots/advice_db.json```
+
+## Running the GeneralTweet bot
+
+To send general tweets every day, set up the config file as above, then run:
+
+```python bots/generalTweets.py --config=api_config.ini```
+
