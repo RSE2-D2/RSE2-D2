@@ -81,6 +81,13 @@ def analyseGithubLinkAndRespond(github, twitter, errorJSON, tweet, link):
                 status=" " + res,
                 in_reply_to_status_id=tweet.id,
             )
+    else:
+        reply = '@' + tweet.user.screen_name + ' ' + "The force is strong in this one! No errors detected."
+        twitter.update_status(
+            status = reply,
+            in_reply_to_status_id=tweet.id,
+        )
+
 
     return
 
@@ -158,7 +165,7 @@ def main():
     twitter = api.createTwitterAPI(cfgloc)
     github = api.createGitHubAPI(cfgloc)
 
-    latestId = 1245701334373892130
+    latestId = 1245723678840705026
     while True:
         latestId = watchMentions(github, twitter, args.error_json, latestId)
         time.sleep(30)
