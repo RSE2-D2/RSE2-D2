@@ -30,21 +30,46 @@ files_we_need = { #Use casefold() for case insensitive comparison
 # Add more files from https://github.com/joelparkerhenderson/github_special_files_and_paths ?
 }
 
+files_audited = {
+    "strong_in_the_force" : [],
+    "lacking_faith" : []
+}
+
+
 def analyseGithubLinkAndRespond(github, twitter, link):
     repo = ();
     try:
         repo = github.get_repo(link)
     except Exception as e:
+        print(e)
         return
 
     # gather all files in the root of the repo
     contents = repo.get_contents("")
+    contents_files_lowercase = []
 
-    # iterate through approved file list and for each type, check if it's present
+    for content in contents:
+        contents_files_lowercase.append(content.name.casefold())
+
+    print("contents of repo root:")
+    print(contents_files_lowercase)
+
+    #iterate through approved file list and for each type, check if it's present
     for a_file_type in files_we_need:
         the_type = files_we_need[a_file_type]
-        for filename_option in the_type["filenames"]:
-            print(filename_option)
+        print("--> checking for " + a_file_type);
+        # check for intersection in existing file namesand possible file names
+        found = set(contents_files_lowercase).intersection(the_type["filenames"])
+        if len(found) > 0:
+            print("|------ found " + a_file_type)
+            files_audited["strong_in_the_force"].append(a_file_type)
+        else:
+            print("|xx-notfound " + a_file_type)
+            files_audited["lacking_faith"].append(a_file_type)
+
+    print(files_audited)
+    return files_audited
+
 
 def containsGitHubURL(s) :
     return "github.com/" in s
