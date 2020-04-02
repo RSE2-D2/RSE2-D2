@@ -13,4 +13,5 @@ def test_getGeneralTweet():
 
 def test_getSectionTweet():
     tweet = tweeter.getTweet(ERROR_JSON, "NoLicense", 'RSE2_D2')
-    assert(tweet == "@RSE2_D2 Facing all that you fear will free you from yourself. Decide on a license you must. 📖  http://tiny.cc/no-license")
+    assert(tweet.startswith("@RSE2_D2"))
+    assert("Facing all that you fear will free you from yourself. Decide on a license you must." in tweet)

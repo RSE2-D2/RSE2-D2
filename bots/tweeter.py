@@ -7,6 +7,7 @@ import time
 
 JSON_KEY_GENERAL = 'general'
 JSON_KEY_QUOTE = 'quote'
+JSON_KEY_RANDOM = 'randomiser'
 
 
 def getTweet(jsonFilename, section=JSON_KEY_GENERAL, reply_username=None):
@@ -19,6 +20,11 @@ def getTweet(jsonFilename, section=JSON_KEY_GENERAL, reply_username=None):
 
     if len(tweets) > 0:
         tweet = random.choice(tweets).get(JSON_KEY_QUOTE)
+
+        random_words = data.get(JSON_KEY_RANDOM)
+        start = random.choice(random_words)
+        end = random.choice(random_words)
+        tweet = ' '.join([start, tweet, end])
 
         if reply_username is not None:
             tweet = '@' + reply_username + ' ' + tweet
