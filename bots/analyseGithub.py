@@ -27,7 +27,7 @@ def analyseGithubLinkAndRespond(github, twitter, link):
 def analyseGithubLinkAndRespond_CI(github, twitter, link):
     repo = github.get_repo(link)
 
-    branch = repo.get_branch("master") # FIXME get the default branch instead of master
+    branch = repo.get_branch(repo.default_branch)
     last_commit = branch.commit
     checks = last_commit.get_combined_status()
     if checks.total_count:
