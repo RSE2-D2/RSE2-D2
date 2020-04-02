@@ -28,6 +28,8 @@ given by "--config".
 
 An example API configuration ini file is in `api_config.ini`.
 
-For example, we can run with a local config using
+The local database of responses is given by the argument ```--error_json```
 
-```python bots/analyseGithub.py --config api_config.ini```
+For example, we can run with a local config and default responses with
+
+```python bots/analyseGithub.py --config api_config.ini --error_json bots/advice/db.json```
