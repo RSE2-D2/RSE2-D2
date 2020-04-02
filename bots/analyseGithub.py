@@ -89,6 +89,23 @@ def analyseGithubLinkAndRespond(github, twitter, errorJSON, tweet, link):
     return
 
 
+def analyseGithubLinkAndRespond_CI(github, twitter, link):
+    repo = github.get_repo(link)
+
+    branch = repo.get_branch(repo.default_branch)
+    last_commit = branch.commit
+    checks = last_commit.get_combined_status()
+    if checks.total_count:
+        # Are they passing?
+        if checks.state == "success":
+            print(f"You've got {checks.total_count} checks in place and all are passing!")
+        else:
+            passing = sum([a.state == "success" for a in checks.statuses])
+            print(f"You've got {passing} checks from  {checks.total_count}! You are in a right track!")
+    else:
+        print("You need some checks!")
+
+
 def containsGitHubURL(s) :
     return "github.com/" in s
 
